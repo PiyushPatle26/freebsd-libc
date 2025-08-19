@@ -1,0 +1,39 @@
+LIBFREEBSD_LOCALE_HDRS-y += $(LIBFREEBSD)/src/internal/atomic.h
+LIBFREEBSD_LOCALE_HDRS-y += $(LIBFREEBSD)/include/ctype.h
+LIBFREEBSD_LOCALE_HDRS-y += $(LIBFREEBSD)/include/endian.h
+LIBFREEBSD_LOCALE_HDRS-y += $(LIBFREEBSD)/include/errno.h
+LIBFREEBSD_LOCALE_HDRS-y += $(LIBFREEBSD)/src/internal/fork_impl.h
+LIBFREEBSD_LOCALE_HDRS-y += $(LIBFREEBSD)/include/iconv.h
+LIBFREEBSD_LOCALE_HDRS-y += $(LIBFREEBSD)/include/langinfo.h
+LIBFREEBSD_LOCALE_HDRS-y += $(LIBFREEBSD)/src/internal/libc.h
+LIBFREEBSD_LOCALE_HDRS-y += $(LIBFREEBSD)/include/libintl.h
+LIBFREEBSD_LOCALE_HDRS-y += $(LIBFREEBSD)/include/limits.h
+LIBFREEBSD_LOCALE_HDRS-y += $(LIBFREEBSD)/include/locale.h
+LIBFREEBSD_LOCALE_HDRS-y += $(LIBFREEBSD)/src/internal/locale_impl.h
+LIBFREEBSD_LOCALE_HDRS-y += $(LIBFREEBSD)/src/internal/lock.h
+LIBFREEBSD_LOCALE_HDRS-y += $(LIBFREEBSD)/include/monetary.h
+LIBFREEBSD_LOCALE_HDRS-y += $(LIBFREEBSD)/include/nl_types.h
+LIBFREEBSD_LOCALE_HDRS-y += $(LIBFREEBSD)/include/pthread.h
+LIBFREEBSD_LOCALE_HDRS-y += $(LIBFREEBSD)/src/internal/pthread_impl.h
+LIBFREEBSD_LOCALE_HDRS-y += $(LIBFREEBSD)/include/stdarg.h
+LIBFREEBSD_LOCALE_HDRS-y += $(LIBFREEBSD)/include/stdint.h
+LIBFREEBSD_LOCALE_HDRS-y += $(LIBFREEBSD)/include/stdio.h
+LIBFREEBSD_LOCALE_HDRS-y += $(LIBFREEBSD)/include/stdlib.h
+LIBFREEBSD_LOCALE_HDRS-y += $(LIBFREEBSD)/include/string.h
+LIBFREEBSD_LOCALE_HDRS-y += $(LIBFREEBSD)/include/strings.h
+LIBFREEBSD_LOCALE_HDRS-y += $(LIBFREEBSD)/include/sys/mman.h
+LIBFREEBSD_LOCALE_HDRS-y += $(LIBFREEBSD)/include/sys/stat.h
+LIBFREEBSD_LOCALE_HDRS-y += $(LIBFREEBSD)/include/wchar.h
+
+
+LIBFREEBSD_LOCALE_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/iconv/iconv.c
+LIBFREEBSD_LOCALE_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/iconv/iconv_close.c
+LIBFREEBSD_LOCALE_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/locale/localeconv.c
+LIBFREEBSD_LOCALE_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/locale/setlocale.c
+LIBFREEBSD_LOCALE_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/string/strcoll.c
+LIBFREEBSD_LOCALE_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/stdlib/strfmon.c
+LIBFREEBSD_LOCALE_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/string/strxfrm.c
+LIBFREEBSD_LOCALE_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/string/wcscoll.c
+LIBFREEBSD_LOCALE_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/string/wcsxfrm.c
+
+$(eval $(call _libfreebsd_import_lib,locale,$(LIBFREEBSD_LOCALE_HDRS-y),$(LIBFREEBSD_LOCALE_SRCS-y)))

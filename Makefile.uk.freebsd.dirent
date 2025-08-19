@@ -1,0 +1,15 @@
+LIBFREEBSD_DIRENT_HDRS-y += $(LIBFREEBSD_SRC)/sys/sys/stat.h
+LIBFREEBSD_DIRENT_HDRS-y += $(LIBFREEBSD_SRC)/include/dirent.h
+LIBFREEBSD_DIRENT_HDRS-y += $(LIBFREEBSD_SRC)/include/errno.h
+LIBFREEBSD_DIRENT_HDRS-y += $(LIBFREEBSD_SRC)/include/fcntl.h
+LIBFREEBSD_DIRENT_HDRS-y += $(LIBFREEBSD_SRC)/include/stddef.h
+LIBFREEBSD_DIRENT_HDRS-y += $(LIBFREEBSD_SRC)/sys/sys/stdint.h
+LIBFREEBSD_DIRENT_HDRS-y += $(LIBFREEBSD_SRC)/include/stdlib.h
+LIBFREEBSD_DIRENT_HDRS-y += $(LIBFREEBSD_SRC)/include/string.h
+LIBFREEBSD_DIRENT_HDRS-y += $(LIBFREEBSD_SRC)/include/unistd.h
+LIBFREEBSD_DIRENT_HDRS-y += $(LIBFREEBSD_SRC)/lib/libc/include/libc_private.h
+LIBFREEBSD_DIRENT_HDRS-y += $(LIBFREEBSD_SRC)/sys/sys/syscall.h
+
+LIBFREEBSD_DIRENT_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/gen/scandir.c
+
+$(eval $(call _libfreebsd_import_lib,dirent,$(LIBFREEBSD_DIRENT_HDRS-y),$(LIBFREEBSD_DIRENT_SRCS-y)))

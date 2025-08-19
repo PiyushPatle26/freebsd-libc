@@ -1,0 +1,4 @@
+# No ldso sources needed for Unikraft
+LIBFREEBSD_LDSO_SRCS-y :=
+
+$(eval $(call _libfreebsd_import_lib,ldso,$(LIBFREEBSD_LDSO_HDRS-y),$(LIBFREEBSD_LDSO_SRCS-y)))

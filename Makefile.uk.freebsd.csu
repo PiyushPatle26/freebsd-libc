@@ -1,0 +1,3 @@
+LIBFREEBSD_CSU_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/csu/amd64/crt1.S
+LIBFREEBSD_CSU_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/csu/amd64/crti.S
+LIBFREEBSD_CSU_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/csu/amd64/crtn.S

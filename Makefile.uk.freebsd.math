@@ -1,0 +1,16 @@
+LIBFREEBSD_MATH_HDRS-y += $(LIBFREEBSD)/src/internal/atomic.h
+LIBFREEBSD_MATH_HDRS-y += $(LIBFREEBSD)/include/fenv.h
+LIBFREEBSD_MATH_HDRS-y += $(LIBFREEBSD)/include/float.h
+LIBFREEBSD_MATH_HDRS-y += $(LIBFREEBSD)/src/math/__invtrigl.h
+LIBFREEBSD_MATH_HDRS-y += $(LIBFREEBSD)/src/internal/libc.h
+LIBFREEBSD_MATH_HDRS-y += $(LIBFREEBSD)/src/internal/libm.h
+LIBFREEBSD_MATH_HDRS-y += $(LIBFREEBSD)/include/limits.h
+LIBFREEBSD_MATH_HDRS-y += $(LIBFREEBSD)/include/math.h
+LIBFREEBSD_MATH_HDRS-y += $(LIBFREEBSD)/include/stdint.h
+LIBFREEBSD_MATH_HDRS-y += $(LIBFREEBSD)/include/complex.h
+LIBFREEBSD_MATH_HDRS-y += $(LIBFREEBSD)/include/endian.h
+
+# Math sources are in libm, not lib/libc
+LIBFREEBSD_MATH_SRCS-y :=
+
+$(eval $(call _libfreebsd_import_lib,math,$(LIBFREEBSD_MATH_HDRS-y),$(LIBFREEBSD_MATH_SRCS-y)))

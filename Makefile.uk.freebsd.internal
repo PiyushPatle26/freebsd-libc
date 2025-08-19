@@ -1,0 +1,28 @@
+LIBFREEBSD_INTERNAL_HDRS-y += $(LIBFREEBSD)/include/ctype.h
+LIBFREEBSD_INTERNAL_HDRS-y += $(LIBFREEBSD)/include/elf.h
+LIBFREEBSD_INTERNAL_HDRS-y += $(LIBFREEBSD)/include/errno.h
+LIBFREEBSD_INTERNAL_HDRS-y += $(LIBFREEBSD)/include/features.h
+LIBFREEBSD_INTERNAL_HDRS-y += $(LIBFREEBSD)/include/float.h
+LIBFREEBSD_INTERNAL_HDRS-y += $(LIBFREEBSD)/src/internal/floatscan.h
+LIBFREEBSD_INTERNAL_HDRS-y += $(LIBFREEBSD)/src/internal/libc.h
+LIBFREEBSD_INTERNAL_HDRS-y += $(LIBFREEBSD)/include/limits.h
+LIBFREEBSD_INTERNAL_HDRS-y += $(LIBFREEBSD)/include/link.h
+LIBFREEBSD_INTERNAL_HDRS-y += $(LIBFREEBSD)/include/math.h
+LIBFREEBSD_INTERNAL_HDRS-y += $(LIBFREEBSD)/src/internal/shgetc.h
+LIBFREEBSD_INTERNAL_HDRS-y += $(LIBFREEBSD)/include/stdint.h
+LIBFREEBSD_INTERNAL_HDRS-y += $(LIBFREEBSD)/include/stdio.h
+LIBFREEBSD_INTERNAL_HDRS-y += $(LIBFREEBSD)/include/string.h
+LIBFREEBSD_INTERNAL_HDRS-y += $(LIBFREEBSD)/include/syscall.h
+
+
+# No internal sources found in lib/libc
+LIBFREEBSD_INTERNAL_SRCS-y :=
+
+
+#ifeq (arm,$(CONFIG_UK_ARCH))
+#else ifeq (x86_32,$(CONFIG_UK_ARCH))
+#else ifeq (x86_64,$(CONFIG_UK_ARCH))
+#endif
+
+
+$(eval $(call _libfreebsd_import_lib,internal,$(LIBFREEBSD_INTERNAL_HDRS-y),$(LIBFREEBSD_INTERNAL_SRCS-y)))

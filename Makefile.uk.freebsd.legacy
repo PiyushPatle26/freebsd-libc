@@ -1,0 +1,31 @@
+LIBFREEBSD_LEGACY_HDRS-y += $(LIBFREEBSD)/include/err.h
+LIBFREEBSD_LEGACY_HDRS-y += $(LIBFREEBSD)/include/errno.h
+LIBFREEBSD_LEGACY_HDRS-y += $(LIBFREEBSD)/include/fcntl.h
+LIBFREEBSD_LEGACY_HDRS-y += $(LIBFREEBSD)/include/ftw.h
+LIBFREEBSD_LEGACY_HDRS-y += $(LIBFREEBSD)/src/internal/libc.h
+LIBFREEBSD_LEGACY_HDRS-y += $(LIBFREEBSD)/include/limits.h
+LIBFREEBSD_LEGACY_HDRS-y += $(LIBFREEBSD)/include/pwd.h
+LIBFREEBSD_LEGACY_HDRS-y += $(LIBFREEBSD)/include/stdarg.h
+LIBFREEBSD_LEGACY_HDRS-y += $(LIBFREEBSD)/include/stddef.h
+LIBFREEBSD_LEGACY_HDRS-y += $(LIBFREEBSD)/include/stdio.h
+LIBFREEBSD_LEGACY_HDRS-y += $(LIBFREEBSD)/include/stdlib.h
+LIBFREEBSD_LEGACY_HDRS-y += $(LIBFREEBSD)/include/string.h
+LIBFREEBSD_LEGACY_HDRS-y += $(LIBFREEBSD)/include/stropts.h
+LIBFREEBSD_LEGACY_HDRS-y += $(LIBFREEBSD)/include/sys/resource.h
+LIBFREEBSD_LEGACY_HDRS-y += $(LIBFREEBSD)/include/sys/stat.h
+LIBFREEBSD_LEGACY_HDRS-y += $(LIBFREEBSD)/include/sys/sysinfo.h
+LIBFREEBSD_LEGACY_HDRS-y += $(LIBFREEBSD)/include/sys/time.h
+LIBFREEBSD_LEGACY_HDRS-y += $(LIBFREEBSD)/include/termios.h
+LIBFREEBSD_LEGACY_HDRS-y += $(LIBFREEBSD)/include/ulimit.h
+LIBFREEBSD_LEGACY_HDRS-y += $(LIBFREEBSD)/include/unistd.h
+LIBFREEBSD_LEGACY_HDRS-y += $(LIBFREEBSD)/include/utmpx.h
+
+LIBFREEBSD_LEGACY_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/gen/err.c
+LIBFREEBSD_LEGACY_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/gen/ftw.c
+LIBFREEBSD_LEGACY_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/gen/getloadavg.c
+LIBFREEBSD_LEGACY_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/gen/getpagesize.c
+LIBFREEBSD_LEGACY_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/gen/getusershell.c
+LIBFREEBSD_LEGACY_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/gen/ulimit.c
+LIBFREEBSD_LEGACY_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/gen/valloc.c
+
+$(eval $(call _libfreebsd_import_lib,legacy,$(LIBFREEBSD_LEGACY_HDRS-y),$(LIBFREEBSD_LEGACY_SRCS-y)))

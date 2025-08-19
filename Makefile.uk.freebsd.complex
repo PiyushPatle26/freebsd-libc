@@ -1,0 +1,11 @@
+LIBFREEBSD_COMPLEX_HDRS-y += $(LIBFREEBSD_SRC)/include/complex.h
+LIBFREEBSD_COMPLEX_HDRS-y += float.h
+ifeq ($(CONFIG_LIBFREEBSD_MATH),y)
+    LIBFREEBSD_COMPLEX_HDRS-y += $(LIBFREEBSD_SRC)/include/tgmath.h
+endif
+
+# No complex math sources found in lib/libc
+LIBFREEBSD_COMPLEX_SRCS-y :=
+
+
+$(eval $(call _libfreebsd_import_lib,complex,$(LIBFREEBSD_COMPLEX_HDRS-y),$(LIBFREEBSD_COMPLEX_SRCS-y)))

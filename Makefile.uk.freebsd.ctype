@@ -1,0 +1,35 @@
+# LIBFREEBSD_CTYPE_HDRS-y += alpha.h # not found
+LIBFREEBSD_CTYPE_HDRS-y += $(LIBFREEBSD_SRC)/include/ctype.h
+LIBFREEBSD_CTYPE_HDRS-y += $(LIBFREEBSD_SRC)/sys/sys/endian.h
+LIBFREEBSD_CTYPE_HDRS-y += $(LIBFREEBSD_SRC)/lib/libc/include/libc_private.h
+LIBFREEBSD_CTYPE_HDRS-y += $(LIBFREEBSD_SRC)/lib/libc/locale/locale_impl.h
+LIBFREEBSD_CTYPE_HDRS-y += $(LIBFREEBSD_SRC)/sys/sys/stdint.h
+LIBFREEBSD_CTYPE_HDRS-y += $(LIBFREEBSD_SRC)/include/stdlib.h
+LIBFREEBSD_CTYPE_HDRS-y += $(LIBFREEBSD_SRC)/include/string.h
+LIBFREEBSD_CTYPE_HDRS-y += $(LIBFREEBSD_SRC)/include/wchar.h
+LIBFREEBSD_CTYPE_HDRS-y += $(LIBFREEBSD_SRC)/include/wctype.h
+
+LIBFREEBSD_CTYPE_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/gen/isctype.c
+LIBFREEBSD_CTYPE_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/locale/iswalnum.c
+LIBFREEBSD_CTYPE_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/locale/iswalpha.c
+LIBFREEBSD_CTYPE_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/locale/iswblank.c
+LIBFREEBSD_CTYPE_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/locale/iswcntrl.c
+LIBFREEBSD_CTYPE_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/locale/iswctype.c
+LIBFREEBSD_CTYPE_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/locale/iswdigit.c
+LIBFREEBSD_CTYPE_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/locale/iswgraph.c
+LIBFREEBSD_CTYPE_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/locale/iswlower.c
+LIBFREEBSD_CTYPE_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/locale/iswprint.c
+LIBFREEBSD_CTYPE_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/locale/iswpunct.c
+LIBFREEBSD_CTYPE_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/locale/iswspace.c
+LIBFREEBSD_CTYPE_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/locale/iswupper.c
+LIBFREEBSD_CTYPE_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/locale/iswxdigit.c
+LIBFREEBSD_CTYPE_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/locale/toascii.c
+LIBFREEBSD_CTYPE_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/locale/tolower.c
+LIBFREEBSD_CTYPE_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/locale/toupper.c
+LIBFREEBSD_CTYPE_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/locale/towctrans.c
+LIBFREEBSD_CTYPE_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/locale/wcswidth.c
+LIBFREEBSD_CTYPE_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/locale/wctrans.c
+LIBFREEBSD_CTYPE_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/locale/wcwidth.c
+
+
+$(eval $(call _libfreebsd_import_lib,ctype,$(LIBFREEBSD_CTYPE_HDRS-y),$(LIBFREEBSD_CTYPE_SRCS-y)))

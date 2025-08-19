@@ -1,0 +1,114 @@
+LIBFREEBSD_UNISTD_HDRS-y += $(LIBFREEBSD)/include/errno.h
+LIBFREEBSD_UNISTD_HDRS-y += $(LIBFREEBSD)/include/fcntl.h
+LIBFREEBSD_UNISTD_HDRS-y += $(LIBFREEBSD)/src/internal/libc.h
+LIBFREEBSD_UNISTD_HDRS-y += $(LIBFREEBSD)/include/limits.h
+LIBFREEBSD_UNISTD_HDRS-y += $(LIBFREEBSD)/src/internal/pthread_impl.h
+LIBFREEBSD_UNISTD_HDRS-y += $(LIBFREEBSD)/include/signal.h
+LIBFREEBSD_UNISTD_HDRS-y += $(LIBFREEBSD)/include/stdio.h
+LIBFREEBSD_UNISTD_HDRS-y += $(LIBFREEBSD)/include/stdlib.h
+LIBFREEBSD_UNISTD_HDRS-y += $(LIBFREEBSD)/include/string.h
+LIBFREEBSD_UNISTD_HDRS-y += $(LIBFREEBSD)/src/internal/syscall.h
+LIBFREEBSD_UNISTD_HDRS-y += $(LIBFREEBSD)/include/sys/ioctl.h
+LIBFREEBSD_UNISTD_HDRS-y += $(LIBFREEBSD)/include/sys/resource.h
+LIBFREEBSD_UNISTD_HDRS-y += $(LIBFREEBSD)/include/sys/stat.h
+LIBFREEBSD_UNISTD_HDRS-y += $(LIBFREEBSD)/include/sys/time.h
+LIBFREEBSD_UNISTD_HDRS-y += $(LIBFREEBSD)/include/sys/uio.h
+LIBFREEBSD_UNISTD_HDRS-y += $(LIBFREEBSD)/include/sys/utsname.h
+LIBFREEBSD_UNISTD_HDRS-y += $(LIBFREEBSD)/include/sys/wait.h
+LIBFREEBSD_UNISTD_HDRS-y += $(LIBFREEBSD)/include/termios.h
+LIBFREEBSD_UNISTD_HDRS-y += $(LIBFREEBSD)/include/time.h
+LIBFREEBSD_UNISTD_HDRS-y += $(LIBFREEBSD)/include/unistd.h
+
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/_exit.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/access.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/acct.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/alarm.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/chdir.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/chown.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/close.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/ctermid.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/dup.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/dup2.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/dup3.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/faccessat.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/fchdir.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/fchown.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/fchownat.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/fdatasync.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/fsync.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/ftruncate.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/getcwd.c
+
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/getegid.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/geteuid.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/getgid.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/getgroups.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/getuid.c
+ifneq ($(CONFIG_LIBPOSIX_USER),y)
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/getlogin.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/getlogin_r.c
+endif
+
+ifneq ($(CONFIG_LIBPOSIX_SYSINFO),y)
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/gethostname.c
+endif
+
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/getpgid.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/getpgrp.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/getpid.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/getppid.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/getsid.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/isatty.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/lchown.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/link.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/linkat.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/lseek.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/nice.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/pause.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/pipe.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/pipe2.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/posix_close.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/pread.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/preadv.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/pwrite.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/pwritev.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/read.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/readlink.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/readlinkat.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/readv.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/renameat.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/rmdir.c
+
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/setgid.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/setregid.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/setresgid.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/setresuid.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/setreuid.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/setuid.c
+ifneq ($(CONFIG_LIBPOSIX_USER),y)
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/setegid.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/seteuid.c
+endif
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/setpgid.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/setpgrp.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/setsid.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/setxid.c
+
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/sleep.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/symlink.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/symlinkat.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/sync.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/tcgetpgrp.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/tcsetpgrp.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/truncate.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/ttyname.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/ttyname_r.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/ualarm.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/unlink.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/unlinkat.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/usleep.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/write.c
+LIBFREEBSD_UNISTD_SRCS-y += $(LIBFREEBSD)/src/unistd/writev.c
+
+
+$(eval $(call _libfreebsd_import_lib,unistd,$(LIBFREEBSD_UNISTD_HDRS-y),$(LIBFREEBSD_UNISTD_SRCS-y)))

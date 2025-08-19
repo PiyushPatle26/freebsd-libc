@@ -1,0 +1,30 @@
+LIBFREEBSD_MULTIBYTE_HDRS-y += $(LIBFREEBSD)/include/errno.h
+LIBFREEBSD_MULTIBYTE_HDRS-y += $(LIBFREEBSD)/src/multibyte/internal.h
+LIBFREEBSD_MULTIBYTE_HDRS-y += $(LIBFREEBSD)/include/stdint.h
+LIBFREEBSD_MULTIBYTE_HDRS-y += $(LIBFREEBSD)/include/stdio.h
+LIBFREEBSD_MULTIBYTE_HDRS-y += $(LIBFREEBSD)/include/stdlib.h
+LIBFREEBSD_MULTIBYTE_HDRS-y += $(LIBFREEBSD)/include/string.h
+LIBFREEBSD_MULTIBYTE_HDRS-y += $(LIBFREEBSD)/include/uchar.h
+LIBFREEBSD_MULTIBYTE_HDRS-y += $(LIBFREEBSD)/include/wchar.h
+
+LIBFREEBSD_MULTIBYTE_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/locale/btowc.c
+LIBFREEBSD_MULTIBYTE_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/locale/c16rtomb.c
+LIBFREEBSD_MULTIBYTE_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/locale/c32rtomb.c
+LIBFREEBSD_MULTIBYTE_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/locale/mblen.c
+LIBFREEBSD_MULTIBYTE_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/locale/mbrlen.c
+LIBFREEBSD_MULTIBYTE_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/locale/mbrtoc16.c
+LIBFREEBSD_MULTIBYTE_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/locale/mbrtoc32.c
+LIBFREEBSD_MULTIBYTE_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/locale/mbrtowc.c
+LIBFREEBSD_MULTIBYTE_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/locale/mbsinit.c
+LIBFREEBSD_MULTIBYTE_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/locale/mbsnrtowcs.c
+LIBFREEBSD_MULTIBYTE_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/locale/mbsrtowcs.c
+LIBFREEBSD_MULTIBYTE_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/locale/mbstowcs.c
+LIBFREEBSD_MULTIBYTE_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/locale/mbtowc.c
+LIBFREEBSD_MULTIBYTE_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/locale/wcrtomb.c
+LIBFREEBSD_MULTIBYTE_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/locale/wcsnrtombs.c
+LIBFREEBSD_MULTIBYTE_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/locale/wcsrtombs.c
+LIBFREEBSD_MULTIBYTE_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/locale/wcstombs.c
+LIBFREEBSD_MULTIBYTE_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/locale/wctob.c
+LIBFREEBSD_MULTIBYTE_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/locale/wctomb.c
+
+$(eval $(call _libfreebsd_import_lib,multibyte,$(LIBFREEBSD_MULTIBYTE_HDRS-y),$(LIBFREEBSD_MULTIBYTE_SRCS-y)))

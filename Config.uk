@@ -1,0 +1,231 @@
+# hidden
+menuconfig LIBFREEBSD
+  bool "freebsd: A C standard library"
+  default n
+  select HAVE_LIBC
+  select LIBKUALLOC
+  imply  LIBUKMMAP
+  select LIBSYSCALL_SHIM
+  select LIBVFSCORE
+  select LIBPOSIX_PROCESS
+  select LIBPOSIX_PROCESS_MULTITHREADING
+  select LIBPOSIX_FUTEX
+  select LIBUKSCHED
+  select LIBUKSCHED_TCB_INIT
+  select LIBPOSIX_ENVIRON
+
+  select LIBFREEBSD_STAT
+  select LIBFREEBSD_DIRENT
+  select LIBFREEBSD_TERMIOS
+  select LIBFREEBSD_LOCALE
+  select LIBFREEBSD_ERRNO
+  select LIBFREEBSD_INTERNAL
+  select LIBFREEBSD_STRING
+  select LIBFREEBSD_CTYPE
+  select LIBFREEBSD_STDLIB
+  select LIBFREEBSD_ENV
+
+  select LIBSYSCALL_SHIM_NOWRAPPER
+  select FPSIMD if ARCH_ARM_64
+
+if LIBFREEBSD
+
+config LIBFREEBSD_AIO
+  bool "libaio"
+  default y
+
+config LIBFREEBSD_COMPLEX
+  bool "libcomplex"
+  default n
+  select LIBCOMPILER_RT
+
+config LIBFREEBSD_CONF
+  bool "libconf"
+  default y
+
+config LIBFREEBSD_CRYPT
+  bool "libcrypt"
+  default y
+
+config LIBFREEBSD_CTYPE
+  bool "libctype"
+  default y
+
+config LIBFREEBSD_DIRENT
+  bool "libdirent"
+  default y
+
+config LIBFREEBSD_ENV
+  bool "libenv"
+  default y
+
+config LIBFREEBSD_ERRNO
+  bool "liberrno"
+  default y
+
+config LIBFREEBSD_EXIT
+  bool "libexit"
+  default y
+
+config LIBFREEBSD_FCNTL
+  bool "libfcntl"
+  default y
+
+config LIBFREEBSD_FENV
+  bool "libfenv"
+  default y
+
+config LIBFREEBSD_INTERNAL
+  bool "libinternal"
+  default y
+
+config LIBFREEBSD_IPC
+  bool "libipc"
+  default y
+
+config LIBFREEBSD_LDSO
+  bool "libldso"
+  default y
+
+config LIBFREEBSD_LEGACY
+  bool "liblegacy"
+  default y
+
+config LIBFREEBSD_LINUX
+  bool "liblinux"
+  default y
+
+config LIBFREEBSD_LOCALE
+  bool "liblocale"
+  default y
+
+config LIBFREEBSD_LOCALE_LEGACY
+  bool "Enable legacy locales"
+  depends on LIBFREEBSD_LOCALE
+  default y
+
+config LIBFREEBSD_MALLOC
+  bool "libmalloc"
+  default y
+
+config LIBFREEBSD_MATH
+  bool "libmath"
+  default y
+  select LIBFREEBSD_FENV
+
+config LIBFREEBSD_MISC
+  bool "libmisc"
+  default y
+
+config LIBFREEBSD_MMAN
+  bool "libmman"
+  default y
+
+config LIBFREEBSD_MQ
+  bool "libmq"
+  default y
+
+config LIBFREEBSD_MULTIBYTE
+  bool "libmultibyte"
+  default y
+
+config LIBFREEBSD_NETWORK
+  bool "libnetwork"
+  default y
+
+config LIBFREEBSD_NETWORK_LWIP_DNS
+  bool "Forward DNS requests to lwIP"
+  depends on LIBFREEBSD_NETWORK
+  depends on LIBLWIP
+  select LWIP_DNS
+  select LWIP_SOCKET
+
+config LIBFREEBSD_PASSWD
+  bool "libpasswd"
+  default y
+
+config LIBFREEBSD_PRNG
+  bool "libprng"
+  default y
+
+config LIBFREEBSD_PROCESS
+  bool "libprocess"
+  default y
+  select LIBFREEBSD_THREAD
+
+config LIBFREEBSD_REGEX
+  bool "libregex"
+  default y
+
+config LIBFREEBSD_SCHED
+  bool "libsched"
+  default y
+
+config LIBFREEBSD_SEARCH
+  bool "libsearch"
+  default y
+
+config LIBFREEBSD_SELECT
+  bool "libselect"
+  default y
+
+config LIBFREEBSD_SETJMP
+  bool "libsetjmp"
+  default y
+
+config LIBFREEBSD_SIGNAL
+  bool "libsignal"
+  default y
+  select LIBUKSIGNAL
+
+config LIBFREEBSD_STAT
+  bool "libstat"
+  default y
+
+config LIBFREEBSD_STDIO
+  bool "libstdio"
+  default y
+  select LIBFREEBSD_FENV
+  select LIBFREEBSD_UNISTD
+  select LIBPOSIX_TTY
+  select LIBPOSIX_TTY_STDIO
+
+config LIBFREEBSD_STDLIB
+  bool "libstdlib"
+  default y
+  select LIBFREEBSD_SIGNAL
+  select LIBFREEBSD_MULTIBYTE
+
+config LIBFREEBSD_STRING
+  bool "libstring"
+  default y
+
+config LIBFREEBSD_TEMP
+  bool "libtemp"
+  default y
+
+config LIBFREEBSD_TERMIOS
+  bool "libtermios"
+  default y
+
+config LIBFREEBSD_THREAD
+  bool "libthread"
+  default y
+  select LIBFREEBSD_SCHED
+  select LIBFREEBSD_MMAN
+
+config LIBFREEBSD_FORCE_THREAD
+  bool
+  default y if LIBUKSCHED
+  default n
+  select LIBFREEBSD_THREAD
+
+config LIBFREEBSD_TIME
+  bool "libtime"
+  default y
+
+config LIBFREEBSD_UNISTD
+  bool "libunistd"
+  default y
+
+endif

@@ -1,0 +1,12 @@
+LIBFREEBSD_CRYPT_HDRS-y += $(LIBFREEBSD_SRC)/include/crypt.h
+LIBFREEBSD_CRYPT_HDRS-y += $(LIBFREEBSD_SRC)/include/ctype.h
+LIBFREEBSD_CRYPT_HDRS-y += $(LIBFREEBSD_SRC)/lib/libc/include/libc_private.h
+LIBFREEBSD_CRYPT_HDRS-y += $(LIBFREEBSD_SRC)/sys/sys/stdint.h
+LIBFREEBSD_CRYPT_HDRS-y += $(LIBFREEBSD_SRC)/include/stdio.h
+LIBFREEBSD_CRYPT_HDRS-y += $(LIBFREEBSD_SRC)/include/stdlib.h
+LIBFREEBSD_CRYPT_HDRS-y += $(LIBFREEBSD_SRC)/include/string.h
+LIBFREEBSD_CRYPT_HDRS-y += $(LIBFREEBSD_SRC)/include/unistd.h
+
+LIBFREEBSD_CRYPT_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/gen/crypt.c
+
+$(eval $(call _libfreebsd_import_lib,crypt,$(LIBFREEBSD_CRYPT_HDRS-y),$(LIBFREEBSD_CRYPT_SRCS-y)))

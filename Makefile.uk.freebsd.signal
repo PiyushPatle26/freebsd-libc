@@ -1,0 +1,79 @@
+LIBFREEBSD_SIGNAL_HDRS-y += $(LIBFREEBSD)/include/errno.h
+LIBFREEBSD_SIGNAL_HDRS-y += $(LIBFREEBSD)/include/features.h
+LIBFREEBSD_SIGNAL_HDRS-y += $(LIBFREEBSD)/src/internal/ksigaction.h
+LIBFREEBSD_SIGNAL_HDRS-y += $(LIBFREEBSD)/src/internal/libc.h
+LIBFREEBSD_SIGNAL_HDRS-y += $(LIBFREEBSD)/include/limits.h
+LIBFREEBSD_SIGNAL_HDRS-y += $(LIBFREEBSD)/src/internal/lock.h
+LIBFREEBSD_SIGNAL_HDRS-y += $(LIBFREEBSD)/src/internal/pthread_impl.h
+LIBFREEBSD_SIGNAL_HDRS-y += $(LIBFREEBSD)/include/setjmp.h
+LIBFREEBSD_SIGNAL_HDRS-y += $(LIBFREEBSD)/include/signal.h
+LIBFREEBSD_SIGNAL_HDRS-y += $(LIBFREEBSD)/include/stdint.h
+LIBFREEBSD_SIGNAL_HDRS-y += $(LIBFREEBSD)/src/internal/stdio_impl.h
+LIBFREEBSD_SIGNAL_HDRS-y += $(LIBFREEBSD)/include/string.h
+LIBFREEBSD_SIGNAL_HDRS-y += $(LIBFREEBSD)/include/syscall.h
+LIBFREEBSD_SIGNAL_HDRS-y += $(LIBFREEBSD)/include/sys/time.h
+LIBFREEBSD_SIGNAL_HDRS-y += $(LIBFREEBSD)/include/unistd.h
+
+ifeq (arm,$(ARCH))
+LIBFREEBSD_SIGNAL_HDRS-y += $(LIBFREEBSD)/arch/arm/bits/signal.h
+else ifeq (x86_32,$(ARCH))
+LIBFREEBSD_SIGNAL_HDRS-y += $(LIBFREEBSD)/arch/i386/bits/signal.h
+else ifeq (x86_64,$(ARCH))
+LIBFREEBSD_SIGNAL_HDRS-y += $(LIBFREEBSD)/arch/x86_64/bits/signal.h
+endif
+
+LIBFREEBSD_SIGNAL_SRCS-y += $(LIBFREEBSD)/src/signal/block.c
+LIBFREEBSD_SIGNAL_SRCS-y += $(LIBFREEBSD)/src/signal/getitimer.c
+LIBFREEBSD_SIGNAL_SRCS-y += $(LIBFREEBSD)/src/signal/kill.c
+LIBFREEBSD_SIGNAL_SRCS-y += $(LIBFREEBSD)/src/signal/killpg.c
+LIBFREEBSD_SIGNAL_SRCS-y += $(LIBFREEBSD)/src/signal/psiginfo.c
+LIBFREEBSD_SIGNAL_SRCS-y += $(LIBFREEBSD)/src/signal/psignal.c
+LIBFREEBSD_SIGNAL_SRCS-y += $(LIBFREEBSD)/src/signal/raise.c
+LIBFREEBSD_SIGNAL_SRCS-y += $(LIBFREEBSD)/src/signal/setitimer.c
+LIBFREEBSD_SIGNAL_SRCS-y += $(LIBFREEBSD)/src/signal/sigaction.c
+LIBFREEBSD_SIGNAL_SRCS-y += $(LIBFREEBSD)/src/signal/sigaddset.c
+LIBFREEBSD_SIGNAL_SRCS-y += $(LIBFREEBSD)/src/signal/sigaltstack.c
+LIBFREEBSD_SIGNAL_SRCS-y += $(LIBFREEBSD)/src/signal/sigandset.c
+LIBFREEBSD_SIGNAL_SRCS-y += $(LIBFREEBSD)/src/signal/sigdelset.c
+LIBFREEBSD_SIGNAL_SRCS-y += $(LIBFREEBSD)/src/signal/sigemptyset.c
+LIBFREEBSD_SIGNAL_SRCS-y += $(LIBFREEBSD)/src/signal/sigfillset.c
+LIBFREEBSD_SIGNAL_SRCS-y += $(LIBFREEBSD)/src/signal/sighold.c
+LIBFREEBSD_SIGNAL_SRCS-y += $(LIBFREEBSD)/src/signal/sigignore.c
+LIBFREEBSD_SIGNAL_SRCS-y += $(LIBFREEBSD)/src/signal/siginterrupt.c
+LIBFREEBSD_SIGNAL_SRCS-y += $(LIBFREEBSD)/src/signal/sigisemptyset.c
+LIBFREEBSD_SIGNAL_SRCS-y += $(LIBFREEBSD)/src/signal/sigismember.c
+LIBFREEBSD_SIGNAL_SRCS-y += $(LIBFREEBSD)/src/signal/siglongjmp.c
+LIBFREEBSD_SIGNAL_SRCS-y += $(LIBFREEBSD)/src/signal/signal.c
+LIBFREEBSD_SIGNAL_SRCS-y += $(LIBFREEBSD)/src/signal/sigorset.c
+LIBFREEBSD_SIGNAL_SRCS-y += $(LIBFREEBSD)/src/signal/sigpause.c
+LIBFREEBSD_SIGNAL_SRCS-y += $(LIBFREEBSD)/src/signal/sigpending.c
+LIBFREEBSD_SIGNAL_SRCS-y += $(LIBFREEBSD)/src/signal/sigprocmask.c
+LIBFREEBSD_SIGNAL_SRCS-y += $(LIBFREEBSD)/src/signal/sigqueue.c
+LIBFREEBSD_SIGNAL_SRCS-y += $(LIBFREEBSD)/src/signal/sigrelse.c
+LIBFREEBSD_SIGNAL_SRCS-y += $(LIBFREEBSD)/src/signal/sigrtmax.c
+LIBFREEBSD_SIGNAL_SRCS-y += $(LIBFREEBSD)/src/signal/sigrtmin.c
+LIBFREEBSD_SIGNAL_SRCS-y += $(LIBFREEBSD)/src/signal/sigset.c
+LIBFREEBSD_SIGNAL_SRCS-y += $(LIBFREEBSD)/src/signal/sigsetjmp_tail.c
+LIBFREEBSD_SIGNAL_SRCS-y += $(LIBFREEBSD)/src/signal/sigsuspend.c
+LIBFREEBSD_SIGNAL_SRCS-y += $(LIBFREEBSD)/src/signal/sigtimedwait.c
+LIBFREEBSD_SIGNAL_SRCS-y += $(LIBFREEBSD)/src/signal/sigwait.c
+LIBFREEBSD_SIGNAL_SRCS-y += $(LIBFREEBSD)/src/signal/sigwaitinfo.c
+
+ifeq (x86_32,$(CONFIG_UK_ARCH))
+LIBFREEBSD_SIGNAL_SRCS-y += $(LIBFREEBSD)/src/signal/i386/restore.s|i386
+LIBFREEBSD_SIGNAL_SRCS-y += $(LIBFREEBSD)/src/signal/i386/sigsetjmp.s|i386
+else ifeq (x86_64,$(CONFIG_UK_ARCH))
+LIBFREEBSD_SIGNAL_SRCS-y += $(LIBFREEBSD)/src/signal/x86_64/restore.s|x86_64
+LIBFREEBSD_SIGNAL_SRCS-y += $(LIBFREEBSD)/src/signal/x86_64/sigsetjmp.s|x86_64
+else ifeq (arm,$(CONFIG_UK_ARCH))
+LIBFREEBSD_SIGNAL_SRCS-y += $(LIBFREEBSD)/src/signal/arm/restore.s|arm
+LIBFREEBSD_SIGNAL_SRCS-y += $(LIBFREEBSD)/src/signal/arm/sigsetjmp.s|arm
+else ifeq (arm64,$(CONFIG_UK_ARCH))
+LIBFREEBSD_SIGNAL_SRCS-y += $(LIBFREEBSD)/src/signal/aarch64/restore.s|aarch64
+LIBFREEBSD_SIGNAL_SRCS-y += $(LIBFREEBSD)/src/signal/aarch64/sigsetjmp.s|aarch64
+else
+LIBFREEBSD_SIGNAL_SRCS-y += $(LIBFREEBSD)/src/signal/restore.c
+endif
+
+
+$(eval $(call _libfreebsd_import_lib,signal,$(LIBFREEBSD_SIGNAL_HDRS-y),$(LIBFREEBSD_SIGNAL_SRCS-y)))

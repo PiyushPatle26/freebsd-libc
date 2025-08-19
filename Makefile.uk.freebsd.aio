@@ -1,0 +1,17 @@
+LIBFREEBSD_AIO_HDRS-y += $(LIBFREEBSD_SRC)/include/aio.h
+LIBFREEBSD_AIO_HDRS-y += $(LIBFREEBSD_SRC)/sys/sys/atomic.h
+LIBFREEBSD_AIO_HDRS-y += $(LIBFREEBSD_SRC)/include/errno.h
+LIBFREEBSD_AIO_HDRS-y += $(LIBFREEBSD_SRC)/lib/libc/include/libc_private.h
+LIBFREEBSD_AIO_HDRS-y += $(LIBFREEBSD_SRC)/sys/sys/limits.h
+LIBFREEBSD_AIO_HDRS-y += $(LIBFREEBSD_SRC)/include/pthread.h
+# pthread_impl.h not found in libc
+LIBFREEBSD_AIO_HDRS-y += $(LIBFREEBSD_SRC)/include/semaphore.h
+LIBFREEBSD_AIO_HDRS-y += $(LIBFREEBSD_SRC)/include/stdlib.h
+LIBFREEBSD_AIO_HDRS-y += $(LIBFREEBSD_SRC)/include/string.h
+LIBFREEBSD_AIO_HDRS-y += $(LIBFREEBSD_SRC)/sys/sys/syscall.h
+LIBFREEBSD_AIO_HDRS-y += $(LIBFREEBSD_SRC)/include/time.h
+LIBFREEBSD_AIO_HDRS-y += $(LIBFREEBSD_SRC)/include/unistd.h
+
+LIBFREEBSD_AIO_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/sys/aio_suspend.c
+
+$(eval $(call _libfreebsd_import_lib,aio,$(LIBFREEBSD_AIO_HDRS-y),$(LIBFREEBSD_AIO_SRCS-y)))

@@ -1,0 +1,28 @@
+LIBFREEBSD_REGEX_HDRS-y += $(LIBFREEBSD)/include/assert.h
+LIBFREEBSD_REGEX_HDRS-y += $(LIBFREEBSD)/include/ctype.h
+LIBFREEBSD_REGEX_HDRS-y += $(LIBFREEBSD)/include/dirent.h
+LIBFREEBSD_REGEX_HDRS-y += $(LIBFREEBSD)/include/errno.h
+LIBFREEBSD_REGEX_HDRS-y += $(LIBFREEBSD)/include/fnmatch.h
+LIBFREEBSD_REGEX_HDRS-y += $(LIBFREEBSD)/include/glob.h
+LIBFREEBSD_REGEX_HDRS-y += $(LIBFREEBSD)/src/internal/libc.h
+LIBFREEBSD_REGEX_HDRS-y += $(LIBFREEBSD)/include/limits.h
+LIBFREEBSD_REGEX_HDRS-y += $(LIBFREEBSD)/src/internal/locale_impl.h
+LIBFREEBSD_REGEX_HDRS-y += $(LIBFREEBSD)/include/regex.h
+LIBFREEBSD_REGEX_HDRS-y += $(LIBFREEBSD)/include/stddef.h
+LIBFREEBSD_REGEX_HDRS-y += $(LIBFREEBSD)/include/stdint.h
+LIBFREEBSD_REGEX_HDRS-y += $(LIBFREEBSD)/include/stdio.h
+LIBFREEBSD_REGEX_HDRS-y += $(LIBFREEBSD)/include/stdlib.h
+LIBFREEBSD_REGEX_HDRS-y += $(LIBFREEBSD)/include/string.h
+LIBFREEBSD_REGEX_HDRS-y += $(LIBFREEBSD)/include/sys/stat.h
+LIBFREEBSD_REGEX_HDRS-y += $(LIBFREEBSD)/src/regex/tre.h
+LIBFREEBSD_REGEX_HDRS-y += $(LIBFREEBSD)/include/wchar.h
+LIBFREEBSD_REGEX_HDRS-y += $(LIBFREEBSD)/include/wctype.h
+
+LIBFREEBSD_REGEX_SRCS-y += $(LIBFREEBSD)/src/regex/fnmatch.c
+LIBFREEBSD_REGEX_SRCS-y += $(LIBFREEBSD)/src/regex/glob.c
+LIBFREEBSD_REGEX_SRCS-y += $(LIBFREEBSD)/src/regex/regcomp.c
+LIBFREEBSD_REGEX_SRCS-y += $(LIBFREEBSD)/src/regex/regerror.c
+LIBFREEBSD_REGEX_SRCS-y += $(LIBFREEBSD)/src/regex/regexec.c
+LIBFREEBSD_REGEX_SRCS-y += $(LIBFREEBSD)/src/regex/tre-mem.c
+
+$(eval $(call _libfreebsd_import_lib,regex,$(LIBFREEBSD_REGEX_HDRS-y),$(LIBFREEBSD_REGEX_SRCS-y)))
