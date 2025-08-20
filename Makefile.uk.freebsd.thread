@@ -147,7 +147,6 @@ LIBFREEBSD_THREAD_SRCS-y += $(LIBFREEBSD)/src/thread/thrd_join.c
 LIBFREEBSD_THREAD_SRCS-y += $(LIBFREEBSD)/src/thread/thrd_sleep.c
 LIBFREEBSD_THREAD_SRCS-y += $(LIBFREEBSD)/src/thread/thrd_yield.c
 LIBFREEBSD_THREAD_SRCS-y += $(LIBFREEBSD)/src/thread/__timedwait.c
-LIBFREEBSD_THREAD_SRCS-y += $(LIBFREEBSD)/src/thread/tls.c
 LIBFREEBSD_THREAD_SRCS-y += $(LIBFREEBSD)/src/thread/__tls_get_addr.c
 LIBFREEBSD_THREAD_SRCS-y += $(LIBFREEBSD)/src/thread/tss_create.c
 LIBFREEBSD_THREAD_SRCS-y += $(LIBFREEBSD)/src/thread/tss_delete.c

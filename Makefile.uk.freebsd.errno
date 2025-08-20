@@ -5,6 +5,6 @@ LIBFREEBSD_ERRNO_HDRS-y += $(LIBFREEBSD)/src/internal/pthread_impl.h
 LIBFREEBSD_ERRNO_HDRS-y += $(LIBFREEBSD)/src/errno/__strerror.h
 LIBFREEBSD_ERRNO_HDRS-y += $(LIBFREEBSD)/include/string.h
 
-LIBFREEBSD_ERRNO_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/string/strerror.c
+# LIBFREEBSD_ERRNO_SRCS-y += $(LIBFREEBSD_SRC)/lib/libc/string/strerror.c
 
 $(eval $(call _libfreebsd_import_lib,errno,$(LIBFREEBSD_ERRNO_HDRS-y),$(LIBFREEBSD_ERRNO_SRCS-y)))

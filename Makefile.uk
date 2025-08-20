@@ -1,6 +1,5 @@
 #  libfreebsd Makefile.uk
 #
-#  Authors: Daniel Tudor Bibi <daniel.bibi@unikraft.io>
 #
 #  Copyright (c) 2023, Unikraft GmbH. All rights reserved.
 #
@@ -73,12 +72,19 @@ LIBFREEBSD_SRC=$(LIBFREEBSD_ORIGIN)/usr/src
 include $(LIBFREEBSD_BASE)/Makefile.rules
 
 ################################################################################
+# Library extra includes
+################################################################################
+CINCLUDES-y += -I$(LIBFREEBSD_LIBC_BASE)/include
+CINCLUDES-y += -I$(LIBFREEBSD_LIBC_BASE)/include/machine
+
+
+################################################################################
 # Library includes
 ################################################################################
 FREEBSD_ARCH = $(subst x86_64,amd64,$(subst arm64,arm64,$(ARCH)))
 
 LIBFREEBSD_GLOBAL_INCLUDES-y   += -I$(LIBFREEBSD_SRC)/include
-LIBFREEBSD_GLOBAL_INCLUDES-y   += -I$(LIBFREEBSD_SRC)/sys/$(FREEBSD_ARCH)/include
+# LIBFREEBSD_GLOBAL_INCLUDES-y   += -I$(LIBFREEBSD_SRC)/sys/$(FREEBSD_ARCH)/include
 LIBFREEBSD_GLOBAL_INCLUDES-y   += -I$(LIBFREEBSD_SRC)/lib/libc/include
 LIBFREEBSD_GLOBAL_INCLUDES-y   += -I$(LIBFREEBSD_BASE)/include
 

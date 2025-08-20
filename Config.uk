@@ -1,4 +1,3 @@
-# hidden
 menuconfig LIBFREEBSD
   bool "freebsd: A C standard library"
   default n
@@ -228,4 +227,4 @@ config LIBFREEBSD_UNISTD
   bool "libunistd"
   default y
 
-endif
+endif   # closes "if LIBFREEBSD"

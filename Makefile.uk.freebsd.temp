@@ -8,7 +8,7 @@ LIBFREEBSD_TEMP_HDRS-y += $(LIBFREEBSD)/include/sys/stat.h
 LIBFREEBSD_TEMP_HDRS-y += $(LIBFREEBSD)/include/time.h
 LIBFREEBSD_TEMP_HDRS-y += $(LIBFREEBSD)/include/unistd.h
 
-LIBFREEBSD_TEMP_SRCS-y += $(LIBFREEBSD)/src/temp/__randname.c
+# LIBFREEBSD_TEMP_SRCS-y += $(LIBFREEBSD)/src/temp/__randname.c
 LIBFREEBSD_TEMP_SRCS-y += $(LIBFREEBSD)/src/temp/mkdtemp.c
 LIBFREEBSD_TEMP_SRCS-y += $(LIBFREEBSD)/src/temp/mkostemp.c
 LIBFREEBSD_TEMP_SRCS-y += $(LIBFREEBSD)/src/temp/mkostemps.c
