@@ -1,8 +1,0 @@
-LIBFREEBSD_FENV_HDRS-y += $(LIBFREEBSD)/include/fenv.h
-LIBFREEBSD_FENV_HDRS-y += $(LIBFREEBSD)/include/float.h
-
-# No fenv sources found in lib/libc
-LIBFREEBSD_FENV_SRCS-y :=
-
-
-$(eval $(call _libfreebsd_import_lib,fenv,$(LIBFREEBSD_FENV_HDRS-y),$(LIBFREEBSD_FENV_SRCS-y)))

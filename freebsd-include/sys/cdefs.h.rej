@@ -1,0 +1,17 @@
+--- freebsd-include/sys/cdefs.h
++++ freebsd-include/sys/cdefs.h
+@@ -210,8 +210,14 @@
+ #define	__nonnull(x)	__attribute__((__nonnull__ x))
+ #define	__nonnull_all	__attribute__((__nonnull__))
+ 
++/* Guard against Unikraft redefinitions */
++#ifndef __UNIKRAFT__
+ #define	__unused	__attribute__((__unused__))
++#endif
++
++#ifndef __WORDSIZE
+ #define	__packed	__attribute__((__packed__))
++#endif
+ #define	__aligned(x)	__attribute__((__aligned__(x)))
+ #define	__section(x)	__attribute__((__section__(x)))
+ 
