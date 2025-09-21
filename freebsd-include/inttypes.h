@@ -1,86 +1,62 @@
 /*-
- * inttypes.h - Integer printf/scanf format macros
- * Compatibility header for FreeBSD
+ * SPDX-License-Identifier: BSD-2-Clause
+ *
+ * Copyright (c) 2001 Mike Barcroft <mike@FreeBSD.org>
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ * 1. Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ * 2. Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE
+ * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+ * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+ * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+ * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ * SUCH DAMAGE.
  */
 
-#ifndef _INTTYPES_H
-#define _INTTYPES_H
+#ifndef _INTTYPES_H_
+#define	_INTTYPES_H_
 
-#include <sys/cdefs.h>
-#include <stdint.h>
+#include <machine/_inttypes.h>
+#include <sys/stdint.h>
 
-__BEGIN_DECLS
-
-/* Printf format macros for fixed-width integers */
-#ifdef __LP64__
-/* 64-bit system */
-#define PRId8       "d"
-#define PRId16      "d" 
-#define PRId32      "d"
-#define PRId64      "ld"
-#define PRIdMAX     "ld"
-#define PRIdPTR     "ld"
-
-#define PRIu8       "u"
-#define PRIu16      "u"
-#define PRIu32      "u"
-#define PRIu64      "lu"
-#define PRIuMAX     "lu"
-#define PRIuPTR     "lu"
-
-#define PRIx8       "x"
-#define PRIx16      "x"
-#define PRIx32      "x"
-#define PRIx64      "lx"
-#define PRIxMAX     "lx"
-#define PRIxPTR     "lx"
-
-#define PRIX8       "X"
-#define PRIX16      "X"
-#define PRIX32      "X"
-#define PRIX64      "lX"
-#define PRIXMAX     "lX"
-#define PRIXPTR     "lX"
-
-#else
-/* 32-bit system */
-#define PRId8       "d"
-#define PRId16      "d"
-#define PRId32      "d"
-#define PRId64      "lld"
-#define PRIdMAX     "lld"
-#define PRIdPTR     "d"
-
-#define PRIu8       "u"
-#define PRIu16      "u"
-#define PRIu32      "u"
-#define PRIu64      "llu"
-#define PRIuMAX     "llu"
-#define PRIuPTR     "u"
-
-#define PRIx8       "x"
-#define PRIx16      "x"
-#define PRIx32      "x"
-#define PRIx64      "llx"
-#define PRIxMAX     "llx"
-#define PRIxPTR     "x"
-
-#define PRIX8       "X"
-#define PRIX16      "X"
-#define PRIX32      "X"
-#define PRIX64      "llX"
-#define PRIXMAX     "llX"
-#define PRIXPTR     "X"
+#ifndef	__cplusplus
+#ifndef _WCHAR_T_DECLARED
+typedef	___wchar_t	wchar_t;
+#define	_WCHAR_T_DECLARED
+#endif
 #endif
 
-/* Scanf format macros */
-#define SCNd8       "hhd"
-#define SCNd16      "hd"
-#define SCNd32      "d"
-#define SCNu8       "hhu"
-#define SCNu16      "hu"
-#define SCNu32      "u"
+typedef struct {
+	intmax_t	quot;		/* Quotient. */
+	intmax_t	rem;		/* Remainder. */
+} imaxdiv_t;
 
+__BEGIN_DECLS
+#ifdef _XLOCALE_H_
+#include <xlocale/_inttypes.h>
+#endif
+intmax_t	imaxabs(intmax_t) __pure2;
+imaxdiv_t	imaxdiv(intmax_t, intmax_t) __pure2;
+
+intmax_t	strtoimax(const char * __restrict, char ** __restrict, int);
+uintmax_t	strtoumax(const char * __restrict, char ** __restrict, int);
+intmax_t	wcstoimax(const wchar_t * __restrict,
+		    wchar_t ** __restrict, int);
+uintmax_t	wcstoumax(const wchar_t * __restrict,
+		    wchar_t ** __restrict, int);
 __END_DECLS
 
-#endif /* _INTTYPES_H */
+#endif /* !_INTTYPES_H_ */

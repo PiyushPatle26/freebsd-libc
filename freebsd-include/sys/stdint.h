@@ -56,13 +56,10 @@ typedef	__uint_fast32_t		uint_fast32_t;
 typedef	__uint_fast64_t		uint_fast64_t;
 
 /* GNU and Darwin define this and people seem to think it's portable */
-/* UNIKRAFT MODIFICATION: Force 64-bit __WORDSIZE for x86_64 unikernel */
-#ifdef __UNIKRAFT__
-#define	__WORDSIZE		64
-#elif defined(UINTPTR_MAX) && defined(UINT64_MAX) && (UINTPTR_MAX == UINT64_MAX)
+#if defined(UINTPTR_MAX) && defined(UINT64_MAX) && (UINTPTR_MAX == UINT64_MAX)
 #define	__WORDSIZE		64
 #else
-#define __WORDSIZE 64
+#define	__WORDSIZE		32
 #endif
 
 /* Limits of wchar_t. */

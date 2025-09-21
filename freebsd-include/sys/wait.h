@@ -27,15 +27,12 @@
  * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
- *
- *	@(#)wait.h	8.2 (Berkeley) 7/10/94
  */
 
 #ifndef _SYS_WAIT_H_
 #define _SYS_WAIT_H_
 
 #include <sys/cdefs.h>
-#include <signal.h>
 
 /*
  * This file holds definitions relevant to the wait4 system call and the

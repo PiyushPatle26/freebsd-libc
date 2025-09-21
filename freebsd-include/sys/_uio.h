@@ -27,24 +27,16 @@
  * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
- *
- *	@(#)uio.h	8.5 (Berkeley) 2/22/94
  */
 
 #ifndef _SYS__UIO_H_
 #define	_SYS__UIO_H_
 
 #if __BSD_VISIBLE
-/* enum uio_rw defined by Unikraft vfscore - skip to avoid conflict */
-/*
-#ifndef _UIO_RW_DECLARED
 enum uio_rw {
 	UIO_READ,
 	UIO_WRITE
 };
-#define _UIO_RW_DECLARED
-#endif
-*/
 
 /* Segment flag values. */
 enum uio_seg {

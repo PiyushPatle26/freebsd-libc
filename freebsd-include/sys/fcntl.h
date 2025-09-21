@@ -32,8 +32,6 @@
  * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
- *
- *	@(#)fcntl.h	8.3 (Berkeley) 1/21/94
  */
 
 #ifndef _SYS_FCNTL_H_
@@ -130,18 +128,6 @@ typedef	__pid_t		pid_t;
 #define	O_TTY_INIT	0x00080000	/* Restore default termios attributes */
 
 #define	O_CLOEXEC	0x00100000
-
-/* Linux compatibility flags */
-#define	O_NOATIME	0x00200000	/* Do not update atime */
-#define O_LARGEFILE 0x00400000  /* Large file support */
-#define O_TMPFILE   0x00800000  /* Temporary file */
-
-/* Linux fallocate() flags */
-#define FALLOC_FL_KEEP_SIZE     0x01    /* Don't extend file size */
-#define FALLOC_FL_PUNCH_HOLE    0x02    /* Create holes in file */
-#define FALLOC_FL_NO_HIDE_STALE 0x04    /* Don't hide stale data */
-#define FALLOC_FL_COLLAPSE_RANGE 0x08   /* Remove a range */
-#define FALLOC_FL_ZERO_RANGE    0x10    /* Zero a range */
 #endif
 
 #if __BSD_VISIBLE
@@ -154,7 +140,23 @@ typedef	__pid_t		pid_t;
 #define	O_DSYNC		0x01000000	/* POSIX data sync */
 #if __BSD_VISIBLE
 #define	O_EMPTY_PATH	0x02000000
+#define	O_NAMEDATTR	0x04000000	/* NFSv4 named attributes */
+#define	O_XATTR		O_NAMEDATTR	/* Solaris compatibility */
 #endif
+
+#if __POSIX_VISIBLE >= 202405
+#define	O_CLOFORK	0x08000000
+#endif
+
+/*
+ * !!! DANGER !!!
+ *
+ * There are very few bits left for O_* flags.  Every bit we consume for
+ * local features is one bit we can't use for future source compatibility
+ * with other operating systems.
+ *
+ * All additions should be coordinated with srcmgr@.
+ */
 
 /*
  * XXX missing O_RSYNC.
@@ -282,6 +284,16 @@ typedef	__pid_t		pid_t;
 #define	F_GET_SEALS	20
 #define	F_ISUNIONSTACK	21		/* Kludge for libc, don't use it. */
 #define	F_KINFO		22		/* Return kinfo_file for this fd */
+#endif	/* __BSD_VISIBLE */
+
+#if __POSIX_VISIBLE >= 202405
+#define	F_DUPFD_CLOFORK	23		/* Like F_DUPFD, but FD_CLOFORK is set */
+#endif
+
+#if __BSD_VISIBLE
+#define F_DUP3FD	24		/* Used with dup3() */
+
+#define F_DUP3FD_SHIFT	16		/* Shift used for F_DUP3FD */
 
 /* Seals (F_ADD_SEALS, F_GET_SEALS). */
 #define	F_SEAL_SEAL	0x0001		/* Prevent adding sealings */
@@ -292,6 +304,11 @@ typedef	__pid_t		pid_t;
 
 /* file descriptor flags (F_GETFD, F_SETFD) */
 #define	FD_CLOEXEC	1		/* close-on-exec flag */
+#define	FD_RESOLVE_BENEATH 2		/* all lookups relative to fd have
+					   O_RESOLVE_BENEATH semantics */
+#if __POSIX_VISIBLE >= 202405
+#define	FD_CLOFORK	4		/* close-on-fork flag */
+#endif
 
 /* record locking flags (F_GETLK, F_SETLK, F_SETLKW) */
 #define	F_RDLCK		1		/* shared or read lock */

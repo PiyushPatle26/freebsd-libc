@@ -32,8 +32,6 @@
  * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
- *
- *	@(#)stat.h	8.12 (Berkeley) 6/16/95
  */
 
 #ifndef _SYS_STAT_H_
@@ -161,7 +159,7 @@ struct stat {
 	ino_t	  st_ino;		/* inode's number */
 	nlink_t	  st_nlink;		/* number of hard links */
 	mode_t	  st_mode;		/* inode protection mode */
-	__int16_t st_padding0;
+	__int16_t st_bsdflags;		/* misc system flags */
 	uid_t	  st_uid;		/* user ID of the file's owner */
 	gid_t	  st_gid;		/* group ID of the file's group */
 	__int32_t st_padding1;
@@ -187,7 +185,8 @@ struct stat {
 	blksize_t st_blksize;		/* optimal blocksize for I/O */
 	fflags_t  st_flags;		/* user defined flags for file */
 	__uint64_t st_gen;		/* file generation number */
-	__uint64_t st_spare[10];
+	__uint64_t st_filerev;		/* file revision, incr on changes */
+	__uint64_t st_spare[9];
 };
 
 #ifdef _KERNEL
@@ -341,6 +340,9 @@ struct nstat {
 #define	SF_NOUNLINK	0x00100000	/* file may not be removed or renamed */
 #define	SF_SNAPSHOT	0x00200000	/* snapshot inode */
 
+/* st_bsdflags */
+#define	SFBSD_NAMEDATTR	0x0001		/* file is named attribute or dir */
+
 #ifdef _KERNEL
 /*
  * Shorthand abbreviations of above.
@@ -403,20 +405,5 @@ int	mknodat(int, const char *, mode_t, dev_t);
 #endif
 __END_DECLS
 #endif /* !_KERNEL */
-
-/* Seek constants for file I/O compatibility */
-#ifndef SEEK_SET
-#define	SEEK_SET	0	/* set file offset to offset */
-#define	SEEK_CUR	1	/* set file offset to current plus offset */
-#define	SEEK_END	2	/* set file offset to EOF plus offset */
-#endif
-
-/* Access constants for access() */
-#ifndef F_OK
-#define F_OK    0       /* test for existence of file */
-#define X_OK    0x01    /* test for execute or search permission */
-#define W_OK    0x02    /* test for write permission */
-#define R_OK    0x04    /* test for read permission */
-#endif
 
 #endif /* !_SYS_STAT_H_ */

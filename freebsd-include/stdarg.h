@@ -1,8 +1,6 @@
-/*-
- * stdarg.h - Wrapper for FreeBSD machine/stdarg.h
- */
+#ifndef __SYS_STDARG_H__
+#define	__SYS_STDARG_H__
 
-#ifndef _STDARG_H
-#define _STDARG_H
-#include <machine/stdarg.h>
-#endif /* _STDARG_H */
+#include <sys/_stdarg.h>
+
+#endif	/* __SYS_STDARG_H__ */

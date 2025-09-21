@@ -29,8 +29,6 @@
 #ifndef _SYS__TYPES_H_
 #define _SYS__TYPES_H_
 
-#include <sys/cdefs.h>
-
 /*
  * Basic types upon which most other types are built.
  *
@@ -132,13 +130,8 @@ typedef	__int64_t	__off_t;	/* file offset */
 typedef	__int64_t	__off64_t;	/* file offset (alias) */
 typedef	__int32_t	__pid_t;	/* process [group] */
 typedef	__int64_t	__sbintime_t;
-#ifndef __rlim_t_defined
-#ifndef __rlim_t_defined
-typedef	unsigned long long	__rlim_t;	/* resource limit - match musl exactly */
-#define __rlim_t_defined
-#endif
-#define __rlim_t_defined
-#endif
+typedef	__int64_t	__rlim_t;	/* resource limit - intentionally */
+					/* signed, because of legacy code */
 					/* that uses -1 for RLIM_INFINITY */
 typedef	__uint8_t	__sa_family_t;
 typedef	__uint32_t	__socklen_t;
@@ -186,11 +179,22 @@ typedef	__uint_least32_t __char32_t;
 #endif
 
 typedef struct {
-	long long __max_align1 __aligned(_Alignof(long long));
+	long long __max_align1
+	    __attribute__((__aligned__(__alignof__(long long))));
 #ifndef _STANDALONE
-	long double __max_align2 __aligned(_Alignof(long double));
+	long double __max_align2
+	    __attribute__((__aligned__(__alignof__(long long))));
 #endif
 } __max_align_t;
+
+/* Types for sys/acl.h */
+typedef __uint32_t	__acl_tag_t;
+typedef __uint32_t	__acl_perm_t;
+typedef __uint16_t	__acl_entry_type_t;
+typedef __uint16_t	__acl_flag_t;
+typedef __uint32_t	__acl_type_t;
+typedef __uint32_t	*__acl_permset_t;
+typedef __uint16_t	*__acl_flagset_t;
 
 typedef	__uint64_t	__dev_t;	/* device number */
 

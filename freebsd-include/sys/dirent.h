@@ -27,8 +27,6 @@
  * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
- *
- *	@(#)dirent.h	8.3 (Berkeley) 8/10/94
  */
 
 #ifndef	_SYS_DIRENT_H_
@@ -72,22 +70,6 @@ struct dirent {
 	__uint16_t d_pad1;
 #if __BSD_VISIBLE
 #define	MAXNAMLEN	255
-	char	d_name[MAXNAMLEN + 1];	/* name must be no longer than this */
-#else
-	char	d_name[255 + 1];	/* name must be no longer than this */
-#endif
-};
-
-/* Large file support version (Linux compatibility) */
-struct dirent64 {
-	ino_t      d_fileno;		/* file number of entry */
-	off_t      d_off;		/* directory offset of next entry */
-	__uint16_t d_reclen;		/* length of this record */
-	__uint8_t  d_type;		/* file type, see below */
-	__uint8_t  d_pad0;
-	__uint16_t d_namlen;		/* length of string in d_name */
-	__uint16_t d_pad1;
-#if __BSD_VISIBLE
 	char	d_name[MAXNAMLEN + 1];	/* name must be no longer than this */
 #else
 	char	d_name[255 + 1];	/* name must be no longer than this */
